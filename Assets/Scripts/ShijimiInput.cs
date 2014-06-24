@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ShijimiInput : MonoBehaviour {
+    public GameObject touchEffect;
 
 	void Start () {
 	
@@ -24,6 +25,9 @@ public class ShijimiInput : MonoBehaviour {
                 var other = hit.collider.gameObject;
                 if(hit.collider.CompareTag("ButterflyPicture"))
                 {
+                    var touchPosition = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y - 1f, Input.mousePosition.z));
+                    Instantiate(touchEffect, touchPosition, touchEffect.transform.rotation);
+
                     other.SendMessage("ShowButterfly");
                     other.SetActive(false);
                 }
@@ -35,7 +39,7 @@ public class ShijimiInput : MonoBehaviour {
     {
         if(Butterfly.flyCount >= 10)
         {
-            if(GUI.Button(new Rect(0, 0, 100, 50), "元に戻す"))
+            if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 25, 100, 50), "元に戻す"))
             {
                 Butterfly.flyCount = 0;
                 Application.LoadLevel("shijimi");
