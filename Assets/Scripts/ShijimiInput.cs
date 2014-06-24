@@ -25,7 +25,7 @@ public class ShijimiInput : MonoBehaviour {
                 var other = hit.collider.gameObject;
                 if(hit.collider.CompareTag("ButterflyPicture"))
                 {
-                    var touchPosition = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y - 1f, Input.mousePosition.z));
+                    var touchPosition = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y - 2f, Input.mousePosition.z));
                     Instantiate(touchEffect, touchPosition, touchEffect.transform.rotation);
 
                     other.SendMessage("ShowButterfly");
