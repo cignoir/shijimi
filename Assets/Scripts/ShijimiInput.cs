@@ -39,7 +39,7 @@ public class ShijimiInput : MonoBehaviour {
     {
         if(Butterfly.flyCount >= 10)
         {
-            if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 25, 100, 50), "元に戻す"))
+            if(GUI.Button(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 100, 300, 200), "元に戻す"))
             {
                 Butterfly.flyCount = 0;
                 Application.LoadLevel("shijimi");

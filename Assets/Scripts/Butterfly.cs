@@ -24,12 +24,14 @@ public class Butterfly : MonoBehaviour {
     {
         flyCount++;
         animation.Play(animationNames[Random.Range(0, animationNames.Length)]);
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z + 40);
         FlyAway();
+
     }
 
     public void FlyAway()
     {
-        animation.Play("Fly Fast");
+        animation.Play("Fly Medium");
         flying = true;
     }
 }
