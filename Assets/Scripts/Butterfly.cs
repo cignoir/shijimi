@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Butterfly : MonoBehaviour {
+    public static int flyCount;
     static string[] animationNames;
     bool flying = false;
     float flyingSpeed = 2f;
@@ -21,6 +22,7 @@ public class Butterfly : MonoBehaviour {
 
     public void Animate()
     {
+        flyCount++;
         animation.Play(animationNames[Random.Range(0, animationNames.Length)]);
         FlyAway();
     }

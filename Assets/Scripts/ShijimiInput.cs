@@ -27,11 +27,19 @@ public class ShijimiInput : MonoBehaviour {
                     other.SendMessage("ShowButterfly");
                     other.SetActive(false);
                 }
-                else if(hit.collider.CompareTag("Butterfly"))
-                {
-                    other.GetComponentInParent<Butterfly>().SendMessage("FlyAway");
-                }
             }
         }
 	}
+
+    void OnGUI()
+    {
+        if(Butterfly.flyCount >= 10)
+        {
+            if(GUI.Button(new Rect(0, 0, 100, 50), "元に戻す"))
+            {
+                Butterfly.flyCount = 0;
+                Application.LoadLevel("shijimi");
+            }
+        }
+    }
 }
